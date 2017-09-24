@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Content>
+<item hdgridposterurl="pkg:/images/poster-video.jpg" title = "VideNo1" TargetRotation = "0" Length = "512"/>
+<item hdgridposterurl="pkg:/images/poster-video.jpg" title = "VideNo2" TargetRotation = "0" Length = "512"/>
+<item hdgridposterurl="pkg:/images/poster-video.jpg" title = "VideNo3" TargetRotation = "0" Length = "512"/>
+</Content>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="ProgressBar" extends="Group" xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
+
+	<interface>
+	
+    	<field id="color" type="string" alwaysnotify = "true" alias="progressBar.color" />
+    	<field id="width" type="string" alwaysnotify = "true" alias="progressBar.width" />
+    	<field id="height" type="string" alwaysnotify = "true" alias="progressBar.height" />
+    	
+    </interface>
+
+	<script type="text/brightscript" uri="pkg:/components/CustomElements/progressBar/ProgressBar.brs"/>
+	
+	<children>
+	
+		<Rectangle
+			 id="progressBar"
+			 color="0xFDF7E7"
+		  />
+	
+	</children>
+
+</component>
