@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="customContent" extends="ContentNode" >
+	<interface >
+		<field id="posterUri" type="string" value="pkg:/images/poster-video.jpg"/>
+		<field id="posterWidth" type="float" value="512"/>
+		<field id="progressBarWidth" type="float" value="0"/>
+	</interface>
+</component>

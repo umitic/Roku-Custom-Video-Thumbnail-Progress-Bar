@@ -7,10 +7,10 @@ sub init()
     m.video = m.top.findNode("videos")
     
     m.readMarkupGridTask = createObject("roSGNode", "ContentReader")
-    m.readMarkupGridTask.contenturi = "pkg:/server/markupGridContent.xml"
+    m.readMarkupGridTask.contenturi = "pkg:/components/customContent.xml"
     m.readMarkupGridTask.observeField("content", "showMarkupGrid")
     m.readMarkupGridTask.control = "RUN"
-    
+        
     m.markupGrid.setFocus(true)
     
     videoContent = createObject("RoSGNode", "ContentNode")
@@ -25,7 +25,7 @@ end sub
 
 sub showMarkupGrid()
     print "HomeScreen " ; "showMarkupGrid()"    
-    
+
     m.markupGrid.content = m.readMarkupGridTask.content
 end sub
 
@@ -40,12 +40,16 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
          end if
     
     else if (key = "back")
+        if m.video.state = "playing"
+           onVideoPosition()    
+        end if   
+        
         if m.video.visible
-           m.video.control = "stop"
-           returnToHS()
-           handled = true 
+            m.video.control = "stop"
+            returnToHS()
+            handled = true  
         end if
-    onVideoPosition()
+    
     end if
   end if
   return handled
@@ -79,11 +83,11 @@ sub onVideoPosition()
     print "HomeScreen " ; "onVideoPosition()"
     
     'setting progressBar to itemPoster width
-    m.markupGrid.content.getChild(m.markupGrid.itemFocused).TargetRotation = m.markupGrid.content.getChild(m.markupGrid.itemFocused).Length
+    m.markupGrid.content.getChild(m.markupGrid.itemFocused).progressBarWidth = m.markupGrid.content.getChild(m.markupGrid.itemFocused).posterWidth
     'calculating percent of watched content 
     passedVideoProgress = (m.video.position / m.video.duration) * 100
     'calculating progress bar width based on percent of watched content
-    passedProgreesBar = (m.markupGrid.content.getChild(m.markupGrid.itemFocused).TargetRotation / 100) *  passedVideoProgress
-    
-    m.markupGrid.content.getChild(m.markupGrid.itemFocused).TargetRotation = passedProgreesBar
+    passedProgreesBar = (m.markupGrid.content.getChild(m.markupGrid.itemFocused).progressBarWidth / 100) *  passedVideoProgress
+        
+    m.markupGrid.content.getChild(m.markupGrid.itemFocused).progressBarWidth = passedProgreesBar
 end sub

@@ -15,9 +15,9 @@ sub onShowContent()
     print "MarkupGridItem " ; "onShowContent()"
     
     itemcontent = m.top.itemContent
-    m.itemPoster.uri = itemcontent.hdgridposterurl
-    m.itemPoster.width = itemcontent.Length
-    m.progressBar.width = itemcontent.TargetRotation
+    m.itemPoster.uri = itemcontent.posterUri
+    m.itemPoster.width = itemcontent.posterWidth
+    m.progressBar.width = itemcontent.progressBarWidth
     m.itemMaskBar.width = m.progressBar.width
 end sub
 

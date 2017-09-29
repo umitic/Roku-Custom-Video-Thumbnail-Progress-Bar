@@ -6,21 +6,12 @@ end sub
 
 sub readContent()
     print "ContentReader " ; "readContent()"
-    content = createObject("roSGNode", "ContentNode")
     
-    contentXml = createObject("roXMLElement")
+    customContent = createObject("roSGNode", "customContent")
     
-    xmlString = ReadAsciiFile(m.top.contenturi)
-    
-    contentXml.parse(xmlString)
+    for i = 0 to 2
+        customContent.createChild("customContent")
+    end for
 
-    if contentXml.getName() = "Content"
-        for each item in contentXml.GetNamedElements("item")
-            markupGridItem = content.createChild("ContentNode")
-            markupGridItem.setFields(item.getAttributes())
-        end for
-    end if
-
-
-    m.top.content = content
+    m.top.content = customContent
 end sub
